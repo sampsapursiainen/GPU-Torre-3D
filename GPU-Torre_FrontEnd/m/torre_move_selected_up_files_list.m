@@ -1,0 +1,1 @@
+torre.h_frontend_files_panel.Items = [torre.h_frontend_files_panel.Value, setdiff(torre.h_frontend_files_panel.Items,torre.h_frontend_files_panel.Value)];
