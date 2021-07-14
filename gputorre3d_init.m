@@ -5,6 +5,6 @@ addpath(genpath(pwd));
 [torre_dir] = fileparts(mfilename('fullpath'));
 torre_dir = [torre_dir '/'];
 
-%torre_frontend_interface_start
+torre_frontend_interface_start
 
 parameters;
