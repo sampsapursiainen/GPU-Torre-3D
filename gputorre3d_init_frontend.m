@@ -6,7 +6,7 @@ addpath(genpath(pwd));
 [torre_dir] = fileparts(mfilename('fullpath'));
 torre_dir = [torre_dir '/'];
 
-
+gputorre_frontend_start
 
 parameters;
 
