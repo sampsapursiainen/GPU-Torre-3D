@@ -1,5 +1,4 @@
-# GPU-Torre-3D
-GPU-Torre - toolbox for full wavefield modelling and tomographic reconstruction.
+# GPU-Torre-3D - toolbox for full wavefield modelling and tomographic reconstruction.
 
 GPU-Torre and GPU-Torre-3D are open Matlab-based toolboxes for numerical investigation of mathematical non-linear tomographic radar inverse imaging problems in 2D and 3D. They aim at enabling fast and robust inversion of sparse full-wave tomography data. The forward modelling approach applies a graphics processing unit (GPU) accelerated finite element time-domain (FETD) method and Born approximation (BA) to account for complex wave scattering inside the computational domain. In the inversion stage, a GPU-accelerated multigrid-FETD deconvolution routine is utilized to enhance computational performance. GPU-Torre frontend provides a graphical interface to manage the parameters of the toolbox and to create script pipelines for advanced modelling and reconstruction tasks in full wavefield simulation, tomographic reconstruction, signal preprocessing, 3D model creation, as well as in design and manufacturing (3D printing) of experimental analogue objects. GPU-Torre and GPU-Torre-3D packages have been used in the following studies.
 
