@@ -18,12 +18,12 @@ torre = rmfield(torre,{'fieldnames_aux'});
 clear torre_data;
 
 torre_data = readcell('parameters_data.dat');
-if size(torre_data,2) < 4
-    torre_data(:,4) = {''};
+if size(torre_data,2) < torre.parameters_size_aux
+    torre_data(:,torre.parameters_size_aux) = {''};
 end
 for torre_i = 1 : size(torre_data,1)
-if ismissing(torre_data{torre_i,4})
-torre_data{torre_i,4} = '';
+if ismissing(torre_data{torre_i,torre.parameters_size_aux})
+torre_data{torre_i,torre.parameters_size_aux} = '';
 end
 end
 torre.parameters_data = torre_data;
@@ -31,6 +31,11 @@ clear torre_data;
 parameters;
 
 torre_frontend_open;
+torre_frontend_open_bank_tool;
+torre_frontend_open_folder_tool;
+torre_frontend_open_script_pipeline
+
+
 
 end
 
