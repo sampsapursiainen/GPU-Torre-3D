@@ -22,5 +22,6 @@ end
 
 end
 torre.parameters_visible_index = find(torre.parameters_visible_index);
+torre.parameters_visible_index = torre.parameters_visible_index(:)';
 torre = rmfield(torre,{'parameters_visible_index_aux_1','parameters_visible_index_aux_1'});
 torre.h_frontend_parameters_panel.Data = torre.parameters_data(torre.parameters_visible_index,:);

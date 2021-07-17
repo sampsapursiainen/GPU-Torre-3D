@@ -1,2 +1,2 @@
-torre.h_frontend_files_panel.Items = setdiff(torre.h_frontend_files_panel.Items,torre.h_frontend_files_panel.Value);
-torre.script_pipeline = torre.h_frontend_files_panel.Items;
+torre.h_frontend_files_panel.Data = torre.h_frontend_files_panel.Data(setdiff([1:size(torre.h_frontend_files_panel.Data,1)]',torre.scripts_selected(:)),:);
+torre.script_pipeline = torre.h_frontend_files_panel.Data;

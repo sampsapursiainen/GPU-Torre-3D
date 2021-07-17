@@ -1,5 +1,5 @@
 if not(isempty(torre.save_file_path)) & not(torre.save_file_path==0)
-[torre.file torre.file_path] = uiputfile('*.dat','Export parameters as...',[torre.save_file_path torre.save_file]);
+[torre.file torre.file_path] = uiputfile('*.dat','Export parameters as...',[torre.save_file_path]);
 else
 [torre.file torre.file_path] = uiputfile('*.dat','Export parameters as...');
 end
