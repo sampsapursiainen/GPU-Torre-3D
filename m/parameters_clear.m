@@ -36,14 +36,20 @@ end
 
 if not(isempty(varargin))
     category_cell = varargin{1};
+    if ismember('All', category_cell) 
+        category_cell = unique(torre_data(:,3))';
+    end
+    if isempty(category_cell)
+     category_cell = unique(torre_data(:,3))';
+    end
 else
     category_cell = unique(torre_data(:,3))';
 end
 
 for torre_i = 1 : size(torre_data)
     if ismember(torre_data{torre_i,3},category_cell)
-        if not(isempy(torre_data{torre_i,1}))
-evalin('base',['clear ' torre_data{torre_i,1}]);
+        if not(isempty(torre_data{torre_i,1}))
+evalin('base',['clear ' torre_data{torre_i,1} ';']);
         end
         end
 end
