@@ -1,89 +1,86 @@
-alpha,0.01,Inverse,
-beta,0.0001,Inverse,
-boundary_buffer,0.2,Forward,
-c_0,299792458.298303,Physics,
-c_rot_1,0.1,Visualization,
-c_rot_2,0.1,Visualization,
-c_view_1,0,Visualization,
-c_view_2,0,Visualization,
-carrier_cycles_per_pulse_cycle,3,Signal,
-carrier_mode,complex,Signal,
-compute_in_pieces,0,Forward,
-courant_number,0.1,Forward,
-d_t,3.1095e-05,Forward,
-data_mode,measured,Signal,
-data_resample_val,4,Forward,
-deconv_reg_param,0.001,Inverse,
-eps_0,8.8541878e-12,Physics,
-eps_val_amp,1e-08,Preprocessing,
-exponential_mixture_parameter,0.333333333333333,Model creation,
-f_max,18,Preprocessing,
-f_min,2,Preprocessing,
-fade_out_param,10,Forward,
-folder_ind,1,Forward,
-frame_param,100,Visualization,
-gmsh_full_file_name,/usr/bin/gmsh,Model creation,
-gmsh_geo_file_name,/Users/dvyuyu/Documents/Interface/GPU-Torre-3D//model_data/model.geo,Model creation,
-gmsh_msh_file_name,/Users/dvyuyu/Documents/Interface/GPU-Torre-3D//model_data/model.msh,Model creation,
-gmsh_surf_file_name,/Users/dvyuyu/Documents/Interface/GPU-Torre-3D//model_data/model_surface.stl,Model creation,
-gpu_extended_memory,3,General,
-imaginary_relative_permittivity_bg,0.01,Forward,
-incident_wave_cut_strength,5,Forward,
-lattice_oversampling_rate,4,Model creation,
-leap_frog_stopping_criterion,100000,Forward,
-make_video,0,Visualization,
-mass_unit_scale,1.9891e+30,Physics,
-max_surface_faces,1000,Model creation,
-min_aperture_angle,60,Signal,
-model_fitting_scale,0.7,Model creation,
-mu_0,1.25663706143592e-06,Physics,
-n_configurations,10,Signal,
-n_iter,10,Inverse,
-n_mesh_generation_refinement,2,Model creation,
-n_r,92,General,
-n_refinement,0,Forward,
-n_sats,2,Signal,
-near_field,0,Forward,
-num_workers,10,General,
-or_buffer,0.005,Signal,
-or_radius,2.5353,Signal,
-parallel_vectors,50,General,
-particle_surface_transparency,0,Model creation,
-pcg_maxit,1000,Forward,
-pcg_tol,1e-05,Forward,
-permittivity_mixture_model,Exp,Model creation,
-pml_val,15,Forward,
-point_cloud_file_name,P2/ss.002860000.bt,Model creation,
-point_cloud_threshold,0.05,Model creation,
-polarization_angle,90,Signal,
-pulse_length,0.12,Signal,
-pulse_type,Blackman-Harris,Signal,
-r_p_m_layer,1.05,Forward,
-real_relative_permittivity_bg,4,Forward,
-receiver_angle_difference_1,-12,Signal,
-receiver_angle_difference_2,0,Signal,
-relative_permittivity_vec,/relative_permittivity_vec,Model creation,
-rotation_angle_y,0,Model creation,
-rotation_angle_z,222,Model creation,
-s_radius,0.19,Forward,
-spatial_scaling_constant,6451.6,Physics,
-spatial_unit_scale,149597871000,Physics,
-std_lhood,0.01,Inverse,
-surface_model_file_name,itokawa/itokawa_model.m,Model creation,
-surface_n_smoothing_iterations,3,Model creation,
-surface_smoothing_size,0.01,Model creation,
-surface_smoothing_std,2,Model creation,
-system_setting_index,1,Forward,
-t_1,1.1,Forward,
-t_data_0,0.05,Inverse,
-t_data_1,0.5,Inverse,
-t_shift,2.3403,Forward,
-temporal_scaling_constant,1e-09,Physics,
-time_oversampling_rate,4,Signal,
-time_series_count,1,Forward,
-volumetric_density_surface_threshold,0.1,Model creation,
-volumetric_n_smoothing_iterations,1,Model creation,
-volumetric_smoothing_size,0.01,Model creation,
-volumetric_smoothing_std,1,Model creation,
-volumetric_surface_transparency,0.2,Model creation,
-gputorre_name,GPU-Torre-3D,System,This is the name of the tool.
+alpha,0.01,Inverse,Assign,Total variation regularization parameter.
+beta,0.0001,Inverse,Assign,Regularization parameter for the norm of the unknown.
+boundary_buffer,0.2,Forward,Assign,Relative boundary buffer zone size to allow smoothing
+c_rot_1,0.1,Visualization,Assign,Rotation 1 of wavefield visualization
+c_rot_2,0.1,Visualization,Assign,Rotation 2 of wavefield visualization
+c_view_1,0,Visualization,Assign,View angle 1 in wave visualization
+c_view_2,0,Visualization,Assign,View angle 2 in wave visualization
+carrier_cycles_per_pulse_cycle,3,Signal,Assign,The number of carrier cycles per pulse duration.
+carrier_mode,complex,Signal,Assign,"'cos', 'sin' or 'complex', defines if cosine (real part) component, sine (imaginary part) component or the full complex signal is evalueated"
+compute_in_pieces,0,Forward,Assign,"Wavefield simulation process is split in pieces, if this variable is 1."
+courant_number,0.1,Forward,Assign,Courant numver in forward simulation
+data_mode,measured,Signal,Assign,Parameter determining if measurement ('measured') or simulated ('simulated') data is used
+data_resample_val,4,Inverse,Assign,Resampling of the temporal data in the inversion procedure
+deconv_reg_param,0.001,Inverse,Assign,Deconvolution (Tikhonov) regularization parameter
+eps_0,8.8541878e-12,Physics,Assign,Electric permittivity of vacuum
+eps_val_amp,1e-08,Preprocessing,Assign,Regularization parammeter for denominator in the inversion process
+exponential_mixture_parameter,0.333333333333333,Model creation,Assign,Parameter for exponential mixture model generation
+f_max,18,Signal,Assign,Maximum measured signal frequency
+f_min,2,Signal,Assign,Minimum measured signal frequency
+fade_out_param,10,Forward,Assign,Fade out parameter for the far-field incident wave on the spherical surface in the near field
+frame_param,100,Visualization,Assign,Frequency of visualizing wavefield during simulation
+gmsh_full_file_name,/usr/bin/gmsh,Model creation,Assign,FEM (Gmsh) geometry file name & mesh generation
+gmsh_geo_file_name,/Users/dvyuyu/Documents/Interface/GPU-Torre-3D//model_data/model.geo,Model creation,Assign,FEM (Gmsh) geometry file name & mesh generation
+gmsh_msh_file_name,/Users/dvyuyu/Documents/Interface/GPU-Torre-3D//model_data/model.msh,Model creation,Assign,FEM (Gmsh) geometry file name & mesh generation
+gmsh_surf_file_name,/Users/dvyuyu/Documents/Interface/GPU-Torre-3D//model_data/model_surface.stl,Model creation,Assign,FEM (Gmsh) geometry file name & mesh generation
+gpu_extended_memory,3,General,Assign,"GPU memory usage, levels 1, 2, 3 correspond to both increasing memory consumption and computing power."
+imaginary_relative_permittivity_bg,0.01,Forward,Assign,"Imaginary relative permittivity, background value"
+incident_wave_cut_strength,5,Signal,Assign,Signal specifications
+lattice_oversampling_rate,4,Model creation,Assign,The resolution of the volumetric lattice (points to each Cartesian direction).
+leap_frog_stopping_criterion,100000,Forward,Assign,A stopping criterion for the leap-frog iteration (norm too large)
+make_video,0,Visualization,Assign,Video file of wave propagation will be created if the value is 1.
+mass_unit_scale,1.9891e+30,Physics,Assign,Mass unit scale factor (scaling to SI-units)
+max_surface_faces,1000,Model creation,Assign,Maximal number of faces on surface in 3D model generation
+min_aperture_angle,60,Signal,Assign,Minimum aperture angle in signal configuration
+model_fitting_scale,0.7,Model creation,Assign,Relative boundary buffer zone size to allow smoothing
+mu_0,1.25663706143592e-06,Physics,Assign,Magnetic permeability of vacuum
+n_configurations,10,Signal,Assign,Number of signal configurations
+n_iter,10,Inverse,Assign,Iteration steps in the inversion procedure
+n_r,92,Signal,Assign,Signal specifications
+n_sats,2,Signal,Assign,"Signal specifications, number of transmitters/receivers in the configuration"
+near_field,0,Signal,Assign,Signal specifications
+num_workers,10,General,Assign,"Number of workers, when a computing process is parallelized using CPU."
+or_buffer,0.005,Signal,Assign,Small buffer variable for orbit to prevent negative (retarded) time values
+or_radius,2.5353,Signal,Assign,Orbit radius
+parallel_vectors,50,System,Assign,The number of parallelly processed vectors in several GPU-computing tasks
+particle_surface_transparency,0,Model creation,Assign,Surface parameters in point cloud based 3D model generation
+pcg_maxit,1000,Forward,Assign,Maximum PCG iteration steps in forward simulation
+pcg_tol,1e-05,Forward,Assign,PCG iteration steps in forward simulation
+permittivity_mixture_model,Exp,Model creation,Assign,Mixture model applied in the permittivity calculation ('Exp' [Default] or 'M-G'). permittivity_mixture_model = 'Exp'
+pml_val,15,Forward,Assign,Perfectly matched layer parameter
+point_cloud_file_name,P2/ss.002860000.bt,Model creation,Assign,Point cloud file in point cloud model based 3D model generation
+point_cloud_threshold,0.05,Model creation,Assign,Maximum point cloud radius for thresholding outliers.
+polarization_angle,90,Signal,Assign,Antenna polarization angle
+pulse_length,0.12,Signal,Assign,Signal specifications
+pulse_type,Blackman-Harris,Signal,Assign,Signal specifications
+r_p_m_layer,1.05,Forward,Assign,Radius of the perfectly matched layer
+real_relative_permittivity_bg,4,Forward,Assign,"Real relative permittivity, background value"
+rotation_angle_y,0,Signal,Assign,Rotation of the target around y axis
+rotation_angle_z,222,Signal,Assign,Rotation of the target around z-axis
+s_radius,0.19,Forward,Assign,Radius of the near field sphere used in morelling the incident far field
+spatial_scaling_constant,6451.6,Physics,Assign,The spatial scaling constant of the numerical domain
+spatial_unit_scale,149597871000,Physics,Assign,Spatial unit scale factor (scaling to SI-units)
+std_lhood,0.01,Inverse,Assign,Likelihood STD in inversion process
+surface_model_file_name,itokawa/itokawa_model.m,Model creation,Assign,Surface model file in 3D model generation
+surface_n_smoothing_iterations,3,Model creation,Assign,Gaussian smoothing of the point cloud distribution (in SI-units).
+surface_smoothing_size,0.01,Model creation,Assign,Gaussian smoothing of the point cloud distribution (in SI-units).
+surface_smoothing_std,2,Model creation,Assign,Gaussian smoothing of the point cloud distribution (in SI-units).
+system_setting_index,1,Forward,Assign,"This parameter sets the system considered in forward simulation (1 = background system, 2 = detailed system)"
+t_1,1.1,Forward,Assign,Maximum time in forward simulation  (unitless)
+t_data_0,0.05,Inverse,Assign,Start point of the time interval in the inversion process
+t_data_1,0.5,Inverse,Assign,End point of the time interval in the inversion process
+t_shift,2.3403,Forward,Assign,Time shift parameter
+temporal_scaling_constant,1e-09,Physics,Assign,The temporal scaling constant of the numerical domain
+time_series_count,1,Forward,Assign,The number of sequential processes in forward simulation of a single wavefield
+volumetric_density_surface_threshold,0.1,Model creation,Assign,Surface parameters in point cloud based 3D model generation
+volumetric_n_smoothing_iterations,1,Model creation,Assign,Gaussian smoothing of the point cloud distribution (in SI-units).
+volumetric_smoothing_size,0.01,Model creation,Assign,Gaussian smoothing of the point cloud distribution (in SI-units).
+volumetric_smoothing_std,1,Model creation,Assign,Gaussian smoothing of the point cloud distribution (in SI-units).
+volumetric_surface_transparency,0.2,Model creation,Assign,Surface parameters in point cloud based 3D model generation
+receiver_angle_difference,[-12 0],Signal,Evaluate,Angular difference between the transmitter and receiver
+pulse_window_function,@bh_window,Signal,Evaluate,"Handle for pulse window function, alternatives: @bh_window (Blackman-Harris) or @mh_window (Mexican hat)"
+relative_permittivity_vec,"relative_permittivity_vec = [10 9 8 7 6 5 4 3]*complex(1,0.012);",Model creation,Expression evaluate,Material relative permittivity value vector (from the sparsest to the densest)
+t_shift,t_shift = - or_buffer + or_radius - s_radius;,Signal,Expression evaluate,Time shift taking into account the orbit buffer
+c_0,c_0 = 1/sqrt(eps_0*mu_0);,Physics,Expression evaluate,Speed of light in vacuum
+d_t,"if isequal(system_setting_index, 1); d_t = 3.1095e-05; elseif isequal(system_setting_index, 2); d_t = 3.1095e-05; end; t_1 = t_1/time_series_count; t_vec = [0:d_t:t_1];",Forward,Expression evaluate,Time step of forward simulation (depends on system_setting_index)
+n_mesh_generation_refinement,"if isequal(system_setting_index, 1); n_mesh_generation_refinement = 2; elseif isequal(system_setting_index, 2); n_mesh_generation_refinement = 2; end",Forward,Expression evaluate,Number of mesh refinements in mesh generation for the forward simulation (depends on system_setting_index)
