@@ -11,7 +11,7 @@ set(torre.h_frontend_menu_add_script_pipeline_bank_panel,'MenuSelectedFcn','torr
 set(torre.h_frontend_menu_delete_bank_panel,'MenuSelectedFcn','torre_delete_bank_items;');
 set(torre.h_frontend_bank_panel,'CellSelectionCallback', @torre_bank_selection);
 set(torre.h_frontend_bank_panel,'columnformat',{torre.bank_item_type_cell,'char'});
-set(torre.h_frontend_bank_tool,'Name',[gputorre_name ' Frontend: Bank tool']);
+set(torre.h_frontend_bank_tool,'Name',[torre.gputorre_name ' Frontend: Bank tool']);
 
 torre_init_bank;
 
@@ -19,6 +19,6 @@ set(torre.h_frontend_bank_tool,'AutoResizeChildren','off');
 torre.frontend_bank_tool_current_size = get(torre.h_frontend_bank_tool,'Position');
 torre.frontend_bank_tool_relative_size = torre_get_relative_size(torre.h_frontend_bank_tool);
 set(torre.h_frontend_bank_tool,'SizeChangedFcn','torre.frontend_bank_tool_current_size = torre_change_size_function(torre.h_frontend_bank_tool,torre.frontend_bank_tool_current_size,torre.frontend_bank_tool_relative_size);');
-set(findobj(torre.h_frontend_bank_tool.Children,'-property','FontSize'),'FontSize',torre_fontsize);
+set(findobj(torre.h_frontend_bank_tool.Children,'-property','FontSize'),'FontSize',torre.fontsize);
 
  set(torre.h_frontend_bank_tool,'Position',[774   503   331   353]);
