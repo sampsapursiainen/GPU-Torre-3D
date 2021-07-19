@@ -25,4 +25,8 @@ clear torre_i
 clear torre_data;
 
 torre_frontend_open;
+torre_frontend_open_bank_tool;
+torre_frontend_open_folder_tool;
+torre_frontend_open_script_pipeline;
+
 end;

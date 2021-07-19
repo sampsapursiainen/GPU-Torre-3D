@@ -12,9 +12,9 @@ for torre_i = 1 : size(torre.h_frontend_files_panel.Data,1)
 
     [~,torre.aux_field] = fileparts(torre.h_frontend_files_panel.Data{torre_i,1});   
     if not(isempty(torre.h_frontend_files_panel.Data{torre_i,2}))
-     fprintf(torre.aux_file, '%s\n',[torre.aux_field torre.h_frontend_files_panel.Data{torre_i,2} ';']);
+     fprintf(torre.aux_file, '%s\n',[torre.aux_field torre.h_frontend_files_panel.Data{torre_i,2}]);
     else
-    fprintf(torre.aux_file, '%s\n',[torre.aux_field ';']);  
+    fprintf(torre.aux_file, '%s\n',[torre.aux_field]);  
     end
   
 end

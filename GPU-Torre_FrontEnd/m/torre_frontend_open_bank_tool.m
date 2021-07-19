@@ -4,6 +4,7 @@ for torre_i = 1 : length(torre.fieldnames_aux)
 torre.(torre.fieldnames_aux{torre_i}) = torre_data.(torre.fieldnames_aux{torre_i});
 end
 torre = rmfield(torre,'fieldnames_aux');
+clear torre_data;
 
 set(torre.h_frontend_apply_bank_panel,'ButtonPushedFcn','torre_apply_bank_panel;');
 set(torre.h_frontend_menu_add_parameters_bank_panel,'MenuSelectedFcn','torre.add_bank_item_type = 1; torre_add_bank_item;');

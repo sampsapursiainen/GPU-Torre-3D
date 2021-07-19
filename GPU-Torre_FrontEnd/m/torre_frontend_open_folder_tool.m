@@ -4,6 +4,7 @@ for torre_i = 1 : length(torre.fieldnames_aux)
 torre.(torre.fieldnames_aux{torre_i}) = torre_data.(torre.fieldnames_aux{torre_i});
 end
 torre = rmfield(torre,'fieldnames_aux');
+clear torre_data;
 
 set(torre.h_frontend_menu_refresh_folder_panel,'MenuSelectedFcn','torre_init_directory;');
 set(torre.h_frontend_folder_tool,'Name',[torre.gputorre_name ' Frontend: Folder tool']);

@@ -4,6 +4,7 @@ for torre_i = 1 : length(torre.fieldnames_aux)
 torre.(torre.fieldnames_aux{torre_i}) = torre_data.(torre.fieldnames_aux{torre_i});
 end
 torre = rmfield(torre,'fieldnames_aux');
+clear torre_data;
 
 set(torre.h_frontend_run_files_panel,'ButtonPushedFcn','torre_run_selected_files_list;');
 set(torre.h_frontend_menu_add_files_panel,'MenuSelectedFcn','torre_add_selected_files_list;');

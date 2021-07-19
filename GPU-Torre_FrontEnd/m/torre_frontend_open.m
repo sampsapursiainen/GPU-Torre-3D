@@ -4,8 +4,7 @@ for torre_i = 1 : length(torre.fieldnames_aux)
 torre.(torre.fieldnames_aux{torre_i}) = torre_data.(torre.fieldnames_aux{torre_i});
 end
 torre = rmfield(torre,'fieldnames_aux');
-
-torre_init_parameters;
+clear torre_data;
 
 set(torre.h_frontend_parameters_panel,'columnformat',{'char','char',torre.parameter_types_cell,torre.parameter_methods_cell,'char'});
 set(torre.h_frontend_find_in_parameters_panel,'ButtonPushedFcn','torre_find_parameters;');
@@ -44,3 +43,5 @@ set(torre.h_frontend,'SizeChangedFcn','torre.frontend_current_size = torre_chang
 set(findobj(torre.h_frontend.Children,'-property','FontSize'),'FontSize',torre.fontsize);
 
 set(torre.h_frontend,'Position',[12   131   749   703]);
+
+torre_init_parameters;
