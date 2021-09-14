@@ -39,19 +39,19 @@ parameters;
 
 point_cloud = load([torre_dir '/model_data/' point_cloud_file_name]);
 
-center_of_mass = sum(repmat(point_cloud(:,3),1,3).*point_cloud(:,[5 6 7]))/sum(point_cloud(:,3)); 
+center_of_mass = sum(repmat(point_cloud(:,1),1,3).*point_cloud(:,[3 4 5]))/sum(point_cloud(:,1)); 
 
-point_cloud_distance_aux = sqrt(sum((point_cloud(:, [5 6 7]) - repmat(center_of_mass, size(point_cloud,1),1)).^2,2));
+point_cloud_distance_aux = sqrt(sum((point_cloud(:, [3 4 5]) - repmat(center_of_mass, size(point_cloud,1),1)).^2,2));
 I = find(point_cloud_distance_aux <= point_cloud_threshold*max(point_cloud_distance_aux));
 point_cloud = point_cloud(I,:);
 
-unit_scaling_constant = spatial_unit_scale*max((max(point_cloud(:,[5 6 7])) - min(point_cloud(:,[5 6 7]))))/(2*s_radius*model_fitting_scale);
+unit_scaling_constant = spatial_unit_scale*max((max(point_cloud(:,[3 4 5])) - min(point_cloud(:,[3 4 5]))))/(2*s_radius*model_fitting_scale);
 
-color_vec = point_cloud(:,14);
-mass_vec = mass_unit_scale*point_cloud(:,3);
-radius_vec = spatial_unit_scale*point_cloud(:,4);
+color_vec = point_cloud(:,6);
+mass_vec = mass_unit_scale*point_cloud(:,1);
+radius_vec = spatial_unit_scale*point_cloud(:,2);
 density_vec = mass_vec./((4/3)*pi*radius_vec.^3);
-point_cloud = (1/unit_scaling_constant)*spatial_unit_scale*point_cloud(:,[5 6 7]);
+point_cloud = (1/unit_scaling_constant)*spatial_unit_scale*point_cloud(:,[3 4 5]);
 [unique_color_vec, ind_aux] = sort(unique(color_vec));
 
 unique_color_vec = [unique_color_vec density_vec(ind_aux)];
@@ -108,7 +108,6 @@ end
  
 point_cloud_ind = point_cloud_ind(:,2)  + lattice_resolution*(point_cloud_ind(:,1)-1) + lattice_resolution^2*(point_cloud_ind(:,3)-1);
 
-
 volumetric_density_lattice = volumetric_density_lattice + accumarray(point_cloud_ind, density_vec(i)*ones(length(point_cloud_ind),1),[length(volumetric_density_lattice) 1]);
 
 filling_lattice{i} = filling_lattice{i} + accumarray(point_cloud_ind, ones(length(point_cloud_ind),1),[length(filling_lattice{i}) 1]);
@@ -135,7 +134,6 @@ end
 filling_lattice{i} = density_scaling*filling_lattice{i};
 end
     
-
 calculate_relative_permittivity;
 
 volumetric_data.x_lattice = x_lattice;
