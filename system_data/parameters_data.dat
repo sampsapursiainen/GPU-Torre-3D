@@ -20,9 +20,9 @@ f_min,2,Signal,Assign,Minimum measured signal frequency
 fade_out_param,10,Forward,Assign,Fade out parameter for the far-field incident wave on the spherical surface in the near field
 frame_param,100,Visualization,Assign,Frequency of visualizing wavefield during simulation
 gmsh_full_file_name,/usr/bin/gmsh,Model creation,Assign,FEM (Gmsh) geometry file name & mesh generation
-gmsh_geo_file_name,/Users/dvyuyu/Documents/Interface/GPU-Torre-3D//model_data/model.geo,Model creation,Assign,FEM (Gmsh) geometry file name & mesh generation
-gmsh_msh_file_name,/Users/dvyuyu/Documents/Interface/GPU-Torre-3D//model_data/model.msh,Model creation,Assign,FEM (Gmsh) geometry file name & mesh generation
-gmsh_surf_file_name,/Users/dvyuyu/Documents/Interface/GPU-Torre-3D//model_data/model_surface.stl,Model creation,Assign,FEM (Gmsh) geometry file name & mesh generation
+gmsh_geo_file_name,/Users/pursiain/Documents/GPU-Torre-3D-main-6/model_surface.geo,Model creation,Assign,FEM (Gmsh) geometry file name & mesh generation
+gmsh_msh_file_name,/Users/pursiain/Documents/GPU-Torre-3D-main-6/model_surface.msh,Model creation,Assign,FEM (Gmsh) geometry file name & mesh generation
+gmsh_surf_file_name,/Users/pursiain/Documents/GPU-Torre-3D-main-6/model_surface.stl,Model creation,Assign,FEM (Gmsh) geometry file name & mesh generation
 gpu_extended_memory,3,General,Assign,"GPU memory usage, levels 1, 2, 3 correspond to both increasing memory consumption and computing power."
 imaginary_relative_permittivity_bg,0.01,Forward,Assign,"Imaginary relative permittivity, background value"
 incident_wave_cut_strength,5,Signal,Assign,Signal specifications
@@ -48,8 +48,8 @@ pcg_maxit,1000,Forward,Assign,Maximum PCG iteration steps in forward simulation
 pcg_tol,1e-05,Forward,Assign,PCG iteration steps in forward simulation
 permittivity_mixture_model,Exp,Model creation,Assign,Mixture model applied in the permittivity calculation ('Exp' [Default] or 'M-G'). permittivity_mixture_model = 'Exp'
 pml_val,15,Forward,Assign,Perfectly matched layer parameter
-point_cloud_file_name,P2/ss.002860000.bt,Model creation,Assign,Point cloud file in point cloud model based 3D model generation
-point_cloud_threshold,0.05,Model creation,Assign,Maximum point cloud radius for thresholding outliers.
+point_cloud_file_name,test_point_cloud.dat,Model creation,Assign,Point cloud file in point cloud model based 3D model generation
+point_cloud_threshold,1,Model creation,Assign,Maximum point cloud radius for thresholding outliers.
 polarization_angle,90,Signal,Assign,Antenna polarization angle
 pulse_length,0.12,Signal,Assign,Signal specifications
 pulse_type,Blackman-Harris,Signal,Assign,Signal specifications
@@ -79,8 +79,9 @@ volumetric_smoothing_std,1,Model creation,Assign,Gaussian smoothing of the point
 volumetric_surface_transparency,0.2,Model creation,Assign,Surface parameters in point cloud based 3D model generation
 receiver_angle_difference,[-12 0],Signal,Evaluate,Angular difference between the transmitter and receiver
 pulse_window_function,@bh_window,Signal,Evaluate,"Handle for pulse window function, alternatives: @bh_window (Blackman-Harris) or @mh_window (Mexican hat)"
-relative_permittivity_vec,"relative_permittivity_vec = [10 9 8 7 6 5 4 3]*complex(1,0.012);",Model creation,Expression evaluate,Material relative permittivity value vector (from the sparsest to the densest)
+relative_permittivity_vec,"relative_permittivity_vec = [5 6 7 8 9]*complex(1,0.012);",Model creation,Expression evaluate,Material relative permittivity value vector (from the sparsest to the densest)
 t_shift,t_shift = - or_buffer + or_radius - s_radius;,Signal,Expression evaluate,Time shift taking into account the orbit buffer
 c_0,c_0 = 1/sqrt(eps_0*mu_0);,Physics,Expression evaluate,Speed of light in vacuum
 d_t,"if isequal(system_setting_index, 1); d_t = 3.1095e-05; elseif isequal(system_setting_index, 2); d_t = 3.1095e-05; end; t_1 = t_1/time_series_count; t_vec = [0:d_t:t_1];",Forward,Expression evaluate,Time step of forward simulation (depends on system_setting_index)
 n_mesh_generation_refinement,"if isequal(system_setting_index, 1); n_mesh_generation_refinement = 2; elseif isequal(system_setting_index, 2); n_mesh_generation_refinement = 2; end",Forward,Expression evaluate,Number of mesh refinements in mesh generation for the forward simulation (depends on system_setting_index)
+SignalProperties,"[signal_center_frequency, signal_bandwidth,signal_highest_frequency] = calc_cf_and_bw([0:d_t:pulse_length], pulse_window_function([0:d_t:pulse_length], pulse_length,carrier_cycles_per_pulse_cycle,'complex'));",Forward,Expression evaluate,Calculate signal properties
