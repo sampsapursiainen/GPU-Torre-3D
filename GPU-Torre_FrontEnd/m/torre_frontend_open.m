@@ -30,7 +30,7 @@ set(torre.h_frontend_menu_export_script_pipeline_as_script,'MenuSelectedFcn','to
 set(torre.h_frontend_menu_export_script_pipeline_as,'MenuSelectedFcn','torre_export_script_pipeline_as;');
 set(torre.h_frontend_menu_import_parameters,'MenuSelectedFcn','torre_import_parameters;');
 set(torre.h_frontend_menu_import_script_pipeline,'MenuSelectedFcn','torre_import_script_pipeline;');
-set(torre.h_frontend_menu_files_tool,'MenuSelectedFcn','torre_frontend_open_files_tool;');
+set(torre.h_frontend_menu_files_tool,'MenuSelectedFcn','torre_frontend_open_folder_tool;');
 set(torre.h_frontend_menu_bank_tool,'MenuSelectedFcn','torre_frontend_open_bank_tool;');
 set(torre.h_frontend_menu_script_pipeline,'MenuSelectedFcn','torre_frontend_open_script_pipeline;');
 set(torre.h_frontend_menu_parameters_tool,'MenuSelectedFcn','torre_frontend_close; torre_frontend_open;');
