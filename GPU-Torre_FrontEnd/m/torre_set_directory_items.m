@@ -12,9 +12,7 @@ if isfolder([dir_path '/' dir_item])
 subdir_item = dir([dir_path '/' dir_item]);
 
 for i = 3 : length(subdir_item)
-subdir_item(i).name
-isfolder([dir_path '/' dir_item '/' subdir_item(i).name])
-    
+ 
    torre_set_directory_items(dir_node, subdir_item(i).name,[dir_path '/' dir_item])
    
 end
