@@ -2,12 +2,12 @@
 %See: https://github.com/sampsapursiainen/GPU-Torre-3D
 
 csc_job = parcluster
-csc_job.AdditionalProperties.WallTime = '24:00:0'
-csc_job.AdditionalProperties.MemUsage = '16g'
-csc_job.AdditionalProperties.QueueName = 'small'
-csc_job.AdditionalProperties.AccountName = 'project_2002680'
-csc_job.AdditionalProperties.EmailAddress = 'liisa-ida.sorsa@tuni.fi'
-csc_job.AdditionalProperties.QueueName = 'gpu'
-csc_job.AdditionalProperties.GpuCard = 'v100'
-csc_job.AdditionalProperties.GpusPerNode = 1
+csc_job.AdditionalProperties.WallTime = csc_cluster_wall_time;
+csc_job.AdditionalProperties.MemUsage = csc_cluster_mem_usage; 
+csc_job.AdditionalProperties.QueueName = csc_cluster_queue_name;
+csc_job.AdditionalProperties.AccountName = csc_cluster_account_name;
+csc_job.AdditionalProperties.EmailAddress = csc_cluster_email_address;
+csc_job.AdditionalProperties.QueueName = csc_cluster_queue_name; 
+csc_job.AdditionalProperties.GpuCard = csc_cluster_gpu_card; 
+csc_job.AdditionalProperties.GpusPerNode = csc_cluster_gpus_per_node;
 csc_job.saveProfile
