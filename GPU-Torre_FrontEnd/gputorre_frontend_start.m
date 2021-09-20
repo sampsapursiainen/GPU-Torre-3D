@@ -17,7 +17,7 @@ end
 torre = rmfield(torre,{'fieldnames_aux'});
 clear torre_data;
 
-torre_data = readcell('parameters_data.dat');
+load([torre_dir torre.system_data_folder '/parameters_data.mat']);
 if size(torre_data,2) < torre.parameters_size_aux
     torre_data(:,torre.parameters_size_aux) = {''};
 end
