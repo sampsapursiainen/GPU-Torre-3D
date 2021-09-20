@@ -6,7 +6,7 @@ end
 if not(isequal(torre.file,0));
 
 torre_data = torre.parameters_data;    
-writecell(torre_data,[torre.file_path torre.file]);
+save([torre.file_path torre.file],'torre_data');
 
 clear torre_data;
 end

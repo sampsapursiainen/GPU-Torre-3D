@@ -17,7 +17,7 @@ torre.h_frontend_menu_move_selected_up_files_panel = torre_data.h_frontend_menu_
 torre.h_frontend_menu_run_files_panel = torre_data.h_frontend_menu_run_files_panel;
 
 clear torre_data
-torre_data = load('parameters_data.dat');
+load([torre_dir torre.system_data_folder '/parameters_data.mat']);
 
 
 torre_data.fieldnames = fieldnames(torre_data);
