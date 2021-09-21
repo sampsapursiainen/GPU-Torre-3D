@@ -1,4 +1,4 @@
-[torre.file torre.file_path] = uigetfile('*.dat','Import script pipeline');
+[torre.file torre.file_path] = uigetfile('*.mat','Import script pipeline');
 if not(isequal(torre.file,0));
 torre_frontend_close;
 torre.script_pipeline = readcell([torre.file_path torre.file]);
