@@ -5,11 +5,11 @@ function parameters(varargin)
 parameters_size = 5;
 
 if length(varargin) > 1
-    torre_data = readcell(varargin{2});
+load(varargin{2});
 else
 
 if not(evalin('base','exist(''torre'')'))
-torre_data = readcell('parameters_data.mat');
+load('parameters_data.mat');
 if size(torre_data,2) < parameters_size
       torre_data(:,parameters_size) = {''};
 end
