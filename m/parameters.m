@@ -9,7 +9,7 @@ if length(varargin) > 1
 else
 
 if not(evalin('base','exist(''torre'')'))
-torre_data = readcell('parameters_data.dat');
+torre_data = readcell('parameters_data.mat');
 if size(torre_data,2) < parameters_size
       torre_data(:,parameters_size) = {''};
 end
@@ -19,7 +19,7 @@ torre_data{torre_i,parameters_size} = '';
 end
 end
 elseif not(isstruct(evalin('base','torre')))
-torre_data = readcell('parameters_data.dat');
+torre_data = readcell('parameters_data.mat');
 if size(torre_data,parameters_size) < parameters_size
       torre_data(:,parameters_size) = {''};
 end
