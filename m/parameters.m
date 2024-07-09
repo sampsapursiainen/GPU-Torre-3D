@@ -56,7 +56,7 @@ if  isempty(category_cell)
 category_cell = unique(torre_data(:,3))';
 end
 
-for torre_i = 1 : size(torre_data)
+for torre_i = 1 : size(torre_data,1)
     if ismember(torre_data{torre_i,3},category_cell)
         if not(ismember(torre_data{torre_i,4},{'Expression evaluate'}))
         if isequal(torre_data{torre_i,4},'Assign')
@@ -68,7 +68,7 @@ for torre_i = 1 : size(torre_data)
     end
 end
 
-for torre_i = 1 : size(torre_data)
+for torre_i = 1 : size(torre_data,1)
     if ismember(torre_data{torre_i,3},category_cell)
      if isequal(torre_data{torre_i,4},'Expression evaluate')
          evalin('base',[torre_data{torre_i,2} ';']); 
